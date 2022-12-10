@@ -13,7 +13,7 @@ export default function Home({ allPosts }: Props) {
   const posts = allPosts
   return (
     <Layout>
-      <Navbar />
+      <Navbar allPosts={allPosts}/>
 
       <Container>
         {posts.length > 0 && <PostCarousel posts={posts} />}
@@ -28,6 +28,7 @@ export const getStaticProps = async () => {
     'date',
     'slug',
     'excerpt',
+    'content'
   ])
 
   return {

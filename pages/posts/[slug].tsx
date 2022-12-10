@@ -5,7 +5,6 @@ import Navbar from "../../components/navBar";
 import { getAllPosts, getPostBySlug } from "../../utils/api";
 import markdownToHtml from "../../utils/markdownToHtml";
 import Head from "next/head";
-import styles from "../../styles/PostDetail.module.css";
 import PostHeader from "../../components/postHeader";
 import Layout from "../../components/layout";
 import Container from "../../components/container";
@@ -13,16 +12,17 @@ import PostBody from "../../components/postBody";
 
 type Props = {
   post: Post
+  allPosts: Post[]
 }
 
-export default function Post({ post }: Props) {
+export default function Post({ post, allPosts }: Props) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
     <Layout>
-      <Navbar />
+      <Navbar allPosts={allPosts}/>
       <Container>
       {router.isFallback ? (
         <h1>Loading...</h1>
@@ -54,17 +54,25 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'excerpt',
+    'content'
+  ])
+
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
     'slug',
     'content',
-    'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
 
   return {
     props: {
+      allPosts,
       post: {
         ...post,
         content,

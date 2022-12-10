@@ -2,8 +2,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import useDetectClickOut from '../utils/hook/useDetectClickOut';
 import SearchModal from './searchModal';
+import type Post from "../interfaces/post";
 
-export default function Navbar() {
+type Props = {
+  allPosts: Post[];
+}
+
+export default function Navbar({ allPosts }: Props) {
   const [showSearchModal, setShowSearchModal] = useState(false);
   const { triggerRef, nodeRef } = useDetectClickOut(() => setShowSearchModal(false));
   return (
@@ -22,6 +27,7 @@ export default function Navbar() {
         <li className="block text-xl transition duration-300 hover:bg-black hover:text-white"><Link href="/about">about me</Link></li>
       </ul>
       <SearchModal 
+        allPosts={allPosts}
         nodeRef={nodeRef}
         onClose={() => setShowSearchModal(false)}
         show={showSearchModal}
