@@ -10,7 +10,7 @@ export default function PostSearchResultList({ posts, query }: Props) {
   return (
     <div className="p-2">
       {posts.map(post => (
-        <PostSearchResult post={post} query={query} />
+        <PostSearchResult key={post.slug} post={post} query={query} />
       ))}   
     </div>
   )
