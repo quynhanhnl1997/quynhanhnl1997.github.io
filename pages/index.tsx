@@ -4,6 +4,7 @@ import PostCarousel from '../components/postCarousel';
 import { getAllPosts } from '../utils/api';
 import Layout from '../components/layout';
 import Container from '../components/container';
+import Head from 'next/head';
 
 type Props = {
   allPosts: Post[]
@@ -12,13 +13,18 @@ type Props = {
 export default function Home({ allPosts }: Props) {
   const posts = allPosts
   return (
-    <Layout>
-      <Navbar allPosts={allPosts}/>
+    <>
+      <Layout>
+        <Head>
+          <title>Home | Thi Nguyen</title>
+        </Head>
+        <Navbar allPosts={allPosts}/>
 
-      <Container>
-        {posts.length > 0 && <PostCarousel posts={posts} />}
-      </Container>
-    </Layout>
+        <Container>
+          {posts.length > 0 && <PostCarousel posts={posts} />}
+        </Container>
+      </Layout>
+    </>
   )
 }
 

@@ -10,10 +10,22 @@
   @apply my-6;
 }
 
+.markdown ul {
+  @apply list-disc px-10 list-outside;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+.markdown a {
+  @apply text-pink hover:text-black hover:bg-pink;
+}
+
+.markdown blockquote {
+  @apply border border-white border-l-pink border-x-4 px-5;
 }

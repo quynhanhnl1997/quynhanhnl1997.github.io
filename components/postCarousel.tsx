@@ -7,7 +7,7 @@ type Props = {
 
 export default function PostCarousel({ posts }: Props) {
   return (
-    <div className="columns-1 md:columns-3">
+    <div className="columns-1 md:columns-3 my-10">
       {posts.map((post) => (
         <PostPreview 
           key={post.slug}

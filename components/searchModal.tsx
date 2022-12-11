@@ -1,6 +1,5 @@
 import { ChangeEvent, RefObject, useCallback, useEffect, useState } from "react";
 import type Post from "../interfaces/post";
-import PostSearchResult from "./postSearchResult";
 import PostSearchResultList from "./postSearchResultList";
 
 type Props = {
@@ -58,7 +57,7 @@ export default function SearchModal({ show, onClose, nodeRef, allPosts }: Props)
                   <input 
                     autoFocus 
                     type="search" 
-                    className="block w-full p-5 pl-14 text-base text-gray-900 border border-white border-b-pink rounded-t-lg focus:outline-transparent" 
+                    className="block w-full p-5 pl-14 text-base text-gray-900 rounded-t-lg focus:outline-transparent" 
                     placeholder="Search Blogs..." 
                     value={query} 
                     onChange={onChange} />
@@ -67,7 +66,7 @@ export default function SearchModal({ show, onClose, nodeRef, allPosts }: Props)
               </div>
               {query != "" && results.length > 0 
                 ? (
-                  <div className="overflow-y-auto h-fit">
+                  <div className="overflow-y-auto h-fit border border-white border-t-pink">
                     <PostSearchResultList posts={results} query={query} />
                   </div>
                   ) 
