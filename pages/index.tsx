@@ -11,7 +11,7 @@ type Props = {
 }
 
 export default function Home({ allPosts }: Props) {
-  const posts = allPosts
+  const posts = allPosts;
   return (
     <>
       <Layout>

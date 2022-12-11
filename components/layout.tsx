@@ -10,8 +10,6 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <Meta />
-      <Script id="highlight_load_script" src="/assets/scripts/highlight.min.js" strategy="beforeInteractive" />
-      <Script id="highlight_run_script">hljs.highlightAll();</Script>
       <div className="min-h-screen">
         <main>{children}</main>
       </div>

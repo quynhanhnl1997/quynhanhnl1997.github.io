@@ -24,7 +24,7 @@ export default function SearchModal({ show, onClose, nodeRef, allPosts }: Props)
       })
       setResults(results);
     }
-  }, [])
+  }, [allPosts])
 
   useEffect(() => {
     const handleCloseKeyboard = (e: KeyboardEvent) => {
@@ -37,7 +37,7 @@ export default function SearchModal({ show, onClose, nodeRef, allPosts }: Props)
     return () => {
       window.removeEventListener('keydown', handleCloseKeyboard);
     }
-  }, [show])
+  }, [show, onClose])
 
   return (
     <>

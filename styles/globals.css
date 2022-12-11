@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'atom-one-light.min.css';
 
 .post_result:hover span {
   background-color: #082031;
