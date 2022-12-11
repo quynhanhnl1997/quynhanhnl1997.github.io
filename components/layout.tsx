@@ -1,4 +1,3 @@
-import Script from "next/script";
 import Meta from "./meta";
 
 type Props = {
@@ -6,7 +5,7 @@ type Props = {
   children: React.ReactNode
 }
 
-const Layout = ({ children }: Props) => {
+export default function Layout ({ children }: Props) {
   return (
     <>
       <Meta />
@@ -16,5 +15,3 @@ const Layout = ({ children }: Props) => {
     </>
   )
 }
-
-export default Layout

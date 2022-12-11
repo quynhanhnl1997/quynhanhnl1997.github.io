@@ -6,7 +6,7 @@ type Props = {
   content: string
 }
 
-const PostBody = ({ content }: Props) => {
+export default function PostBody({ content }: Props) {
   useEffect(() => {
     hljs.highlightAll();
     hljs.configure({ ignoreUnescapedHTML: true });
@@ -20,5 +20,3 @@ const PostBody = ({ content }: Props) => {
     </div>
   )
 }
-
-export default PostBody
