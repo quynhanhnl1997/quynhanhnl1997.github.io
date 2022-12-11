@@ -29,3 +29,7 @@
 .markdown blockquote {
   @apply border border-white border-l-pink border-x-4 px-5;
 }
+
+.markdown p {
+  @apply text-justify
+}
